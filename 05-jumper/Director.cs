@@ -28,6 +28,10 @@ namespace _05_jumper
         // creates the word and pulls back to director. sends the word to board ot creat board, and then sends board and word to user to be displayed
         public void SetUpGame()
         {
+            // _word = _wordBank.WordGenerator();
+            // _userServices.DisplayUnderscore(_word);
+            _board.GenerateBoard();
+            // _board.PrintBoard();
 
         }
         // gets the users guess
