@@ -9,5 +9,9 @@ namespace _05_jumper
         {
 
         }
+        public void DoUpdates()
+        {
+            
+        }
     }
 }

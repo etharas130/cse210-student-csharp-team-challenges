@@ -5,7 +5,7 @@ namespace _05_jumper
 {
     class WordBank
     {
-        public string _wordBank()
+        public string WordGenerator()
         {
             Random randomGenerator = new Random();
             List<string> _words = new List<string>();
@@ -20,7 +20,6 @@ namespace _05_jumper
             string word = _words[randomGenerator.Next(1, _words.Count)];
 
             return word;
-
         }
 
     }
