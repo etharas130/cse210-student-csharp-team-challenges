@@ -7,6 +7,8 @@ namespace _05_jumper
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Starting point for the Jumper project.");
+            // Classes: Board, Director, Jumper, UserService, WordBank, Program
             string word = "word";
             int countDown = word.Length;
             List<string> displayWord = new List<string>();
@@ -25,7 +27,6 @@ namespace _05_jumper
                 
             }
 
-            
         }
     }
 }
