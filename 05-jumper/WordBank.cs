@@ -11,7 +11,7 @@ namespace _05_jumper
             List<string> _words = new List<string>();
 
             _words.Add("forward");
-            // _words.Add("backword");
+            // _words.Add("backward");
             // _words.Add("entropy");
             // _words.Add("order");
             // _words.Add("galaxy");

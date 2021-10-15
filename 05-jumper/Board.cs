@@ -5,8 +5,6 @@ namespace _05_jumper
 {
     class Board
     {
-        
-
         public void GenerateBoard()
         {
             char[,] board = new char[7 , 7] {
@@ -19,8 +17,9 @@ namespace _05_jumper
                 {
                     Console.Write($"{board[row , col]}");
                 }
-                Console.WriteLine("");
             }
+            Console.WriteLine("^^^^^^^^^^^^^^^");
+            Console.WriteLine();
         }
         
     }

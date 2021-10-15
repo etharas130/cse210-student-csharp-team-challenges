@@ -5,25 +5,40 @@ namespace _05_jumper
 {
     class Jumper
     {
-        // Console.WriteLine("Starting point for the Jumper project.");
-        // // Classes: Board, Director, Jumper, UserService, WordBank, Program
-        // string word = "word";
-        // int countDown = word.Length;
-        // List<string> displayWord = new List<string>();
+        string _guess;
+        List<string> _underscores = new List<string>(); 
 
-        // for (int i = 0; i < word.Length; i++)
-        // {
-        //     displayWord.Add("_ ");
-        //     Console.Write(displayWord[i]);
-        // }
-        // Console.WriteLine("");
-        // Console.Write("Guess a letter [a-z]: ");
-        // string guess = Console.ReadLine();
+        public void DisplayUnderscore(string word)
+        {
+            foreach (char letter in word)
+            {
+                _underscores.Add("_ ");
+            }
 
-        // for (int i = 0; i < word.Length; i++)
-        // {
-            
-        // }
+            Console.WriteLine(_underscores);
+        }
+
+        public string GuessLetter()
+        {
+            Console.WriteLine();
+            Console.Write("Guess a letter [a-z]: ");
+            string _guess = Console.ReadLine();
+
+            return _guess;
+        }
+
+        public bool IsGuessRight(string _guess, List<string> underscoreList)
+        {
+            if (_guess in _underscoreList)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false; 
+            }
+        }
 
     }
 }
