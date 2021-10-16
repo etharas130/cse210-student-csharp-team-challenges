@@ -6,18 +6,24 @@ namespace _05_jumper
     class Director
     {
         bool _keepPlaying = true;
-        string _word = "";
-        string _guess;
+        //string _word = "";
+        //string _guess;
 
-        bool _verdict;
+        //bool _verdict;
         Jumper _jumper = new Jumper();
-        WordBank _wordBank = new WordBank();
+        //WordBank _wordBank = new WordBank();
         UserServices _userServices = new UserServices();
-        Board _board = new Board();
+        //Board _board = new Board();
+
+        SecretKeeper _secretKeeper = new SecretKeeper();
+        string _letter;
+        bool _correct;
+        string _chute;
+        string _underscores;
 
         public void StartGame()
         {
-            SetUpGame();
+            //SetUpGame();
 
             while (_keepPlaying)
             {
@@ -28,26 +34,41 @@ namespace _05_jumper
             }
         }
         // creates the word and pulls back to director. sends the word to board ot creat board, and then sends board and word to user to be displayed
-        public void SetUpGame()
-        {
-            _word = _wordBank.WordGenerator();
-            _jumper.DisplayUnderscore(_word);
-            _board.GenerateBoard();
-        }
+        // public void SetUpGame()
+        // {
+        //     _word = _wordBank.WordGenerator();
+        //     _jumper.DisplayUnderscore(_word);
+        //     _board.GenerateBoard();
+        // }
+        
+        
         // gets the users guess
         public void GetInputs()
         {
-            _guess = _jumper.GuessLetter();
+            //_guess = _jumper.GuessLetter();
+            _letter = _userServices.GetLetterFromUser();
         }
         // update display
         public void DoUpdates()
         {
-            _verdict = _jumper.IsGuessRight(_guess, _underscores); 
+            //_verdict = _jumper.IsGuessRight(_guess, _underscores); 
+            _correct = _secretKeeper.CheckGuess(_letter);
+            if (_correct == true)
+            {
+                _secretKeeper.ReplaceUnderscores(_letter);
+            }
+            else
+            {
+                Jumper.CutLine();
+            }
         }
         // displays the new "board" and word status. Determines if game is over or not
         public void DoOutputs()
         {
-
+            _chute = _jumper.GetChute();
+            _underscores = _secretKeeper.GetUnderscores();
+            Console.WriteLine(_chute);
+            Console.WriteLine(_underscores);
         }
     }
 }

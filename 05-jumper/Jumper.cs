@@ -5,40 +5,64 @@ namespace _05_jumper
 {
     class Jumper
     {
-        string _guess;
+        //string _guess;
         List<string> _underscores = new List<string>(); 
 
-        public void DisplayUnderscore(string word)
+        // if the the user's guess is incorrect, the jumper must cut a parachute line
+        public void CutLine()
         {
-            foreach (char letter in word)
-            {
-                _underscores.Add("_ ");
-            }
 
-            Console.WriteLine(_underscores);
+        }
+        
+        // displays the current visual status of the parachute jumper
+        public void GetChute()
+        {
+            char[,] board = new char[7 , 7] {
+                {' ', ' ', '_', '_', '_', ' ', ' '},{' ','/', '_', '_', '_', '\\',' '},{' ', '\\', ' ', ' ', ' ', '/', ' '},
+                {' ', ' ', '\\', ' ', '/', ' ', ' '},{' ', ' ', ' ', '0', ' ', ' ', ' '},{' ', ' ', '/', '|', '\\', ' ', ' '},
+                {' ', ' ', '/', ' ', '\\', ' ', ' '}};
+                for (int row = 0; row < 7; row++)
+                {
+                    for (int col = 0; col < 7; col++)
+                    {
+                        Console.Write($"{board[row , col]}");
+                    }
+                }
+                Console.WriteLine("^^^^^^^^^^^^^^^");
+                Console.WriteLine();
         }
 
-        public string GuessLetter()
-        {
-            Console.WriteLine();
-            Console.Write("Guess a letter [a-z]: ");
-            string _guess = Console.ReadLine();
+        // public void DisplayUnderscore(string word)
+        // {
+        //     foreach (char letter in word)
+        //     {
+        //         _underscores.Add("_ ");
+        //     }
 
-            return _guess;
-        }
+        //     Console.WriteLine(_underscores);
+        // }
 
-        public bool IsGuessRight(string _guess, List<string> underscoreList)
-        {
-            if (_guess in _underscoreList)
-            {
-                return true;
-            }
+        // public string GuessLetter()
+        // {
+        //     Console.WriteLine();
+        //     Console.Write("Guess a letter [a-z]: ");
+        //     string _guess = Console.ReadLine();
 
-            else
-            {
-                return false; 
-            }
-        }
+        //     return _guess;
+        // }
+
+        // public bool IsGuessRight(string _guess, List<string> underscoreList)
+        // {
+        //     if (_guess in _underscoreList)
+        //     {
+        //         return true;
+        //     }
+
+        //     else
+        //     {
+        //         return false; 
+        //     }
+        // }
 
     }
 }

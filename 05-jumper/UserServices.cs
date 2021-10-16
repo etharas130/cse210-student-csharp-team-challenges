@@ -8,13 +8,16 @@ namespace _05_jumper
     {
         
         /// <summary>
-        /// Displays the provided text.
+        /// Gets a letter guess from the user
         /// </summary>
-        /// <param name="text">The text to display</param>
-        public void DisplayText(string text)
+        /// <param> no parameters </param>
+        public string GetLetterFromUser()
         {
-            Console.WriteLine(text);
-        }
+            Console.WriteLine();
+            Console.Write("Guess a letter [a-z]: ");
+            string _guess = Console.ReadLine();
 
+            return _guess;
+        }
     }
 }
