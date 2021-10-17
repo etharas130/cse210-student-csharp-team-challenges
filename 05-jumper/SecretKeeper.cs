@@ -5,33 +5,36 @@ namespace _05_jumper
 {
     class SecretKeeper
     {
-        List<string> _secretWordLetters = new List<string>();
-        List<string> _underscores = new List<string>();
-        List<string> _guessedLetters = new List<string>();
+        List<char> _secretWordLetters = new List<char>();
+        List<char> _underscores = new List<char>();
+        List<char> _guessedLetters = new List<char>();
         int _length;
-        
+
         // chooses the secret word
         public void SelectSecretWord()
         {
             Random randomGenerator = new Random();
             List<string> words = new List<string>();
 
-            words.Add("forward"); //"r" count: 2
-            words.Add("backward"); //"r" count: 1
-            // Always guess "r"
+            words.Add("forward");
+            words.Add("backward");
             // This is how you'll know which is the secret word.
 
-            // words.Add("entropy");
-            // words.Add("order");
-            // words.Add("galaxy");
-            // words.Add("energy");
-            // words.Add("cargo");
-            // words.Add("airplane");
-            // words.Add("hairpin");
+            words.Add("entropy");
+            words.Add("order");
+            words.Add("galaxy");
+            words.Add("energy");
+            words.Add("cargo");
+            words.Add("airplane");
+            words.Add("hairpin");
 
             string secretWord = words[randomGenerator.Next(1, words.Count)];
-
-            _secretWordLetters.Add(secretWord);
+            
+            foreach (char letter in secretWord)
+            {
+                _secretWordLetters.Add(letter);
+            }
+            _length = _secretWordLetters.Count;
         }
 
         // checks whether the user's guess is equivalent to one or more of
@@ -40,13 +43,12 @@ namespace _05_jumper
         {
             foreach (char letter in guess)
             {
-                foreach (string letter2 in _secretWordLetters)
+                foreach (char character in _secretWordLetters)
                 {
-                    char character = char.Parse(letter2);
                     if (letter == character)
                     {
                         // adds the guessed letter to a list to be used in the underscore funtion.
-                        _guessedLetters.Add(letter2);
+                        _guessedLetters.Add(letter);
                         // As soon as it finds a matching letter, it returns true and leaves the function.
                         return true;
                     } 
@@ -58,23 +60,21 @@ namespace _05_jumper
 
         // displays to the user the underscores of the secret word 
         // and whatever correct letters have been chosen
-        public List<string> GetUnderscores()
+        public void GetUnderscores()
         {
-            foreach (string letter in _secretWordLetters)
+            foreach (char letter in _secretWordLetters)
             {
-                _underscores.Add("_ ");
+                _underscores.Add('_');
             }
-            return _underscores;
         }
         
         // if the user's guess is correct, this function replaces
         // the correct underscores with the guess's letter
         public void ReplaceUnderscores(string letter)
         {
-            _length = _secretWordLetters.Count;
             for (int i = 0; i < _length; i++)
             {
-                foreach (string character in _guessedLetters)
+                foreach (char character in _guessedLetters)
                 {
                     if (character == _secretWordLetters[i])
                     {
@@ -86,11 +86,26 @@ namespace _05_jumper
 
         public void DisplayUnderscores()
         {
+            Console.WriteLine("");
             for (int i = 0; i < _length; i++)
             {
-                Console.Write($"{_underscores} ");
+                Console.Write($"{_underscores[i]} ");
             }
             Console.WriteLine("");
+            Console.WriteLine("");
+        }
+
+        public int NumUnderscores()
+        {
+            int numUnderscores = 0;
+            for (int i = 0; i < _length; i++)
+            {
+                if (_underscores[i] == '_')
+                {
+                    numUnderscores++;
+                }
+            }
+            return numUnderscores;
         }
     }
 }

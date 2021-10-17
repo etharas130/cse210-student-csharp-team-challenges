@@ -13,7 +13,6 @@ namespace _05_jumper
         /// <param> no parameters </param>
         public string GetLetterFromUser()
         {
-            Console.WriteLine();
             Console.Write("Guess a letter [a-z]: ");
             string _letter = Console.ReadLine();
 
