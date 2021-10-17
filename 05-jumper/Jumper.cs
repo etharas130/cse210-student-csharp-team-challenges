@@ -9,17 +9,30 @@ namespace _05_jumper
         string _chute;
         List<string> _underscores = new List<string>(); 
         SecretKeeper _secretKeeper = new SecretKeeper();
+        int _wrongGuesses = 0;
+
+        char[,] _board;
 
         // if the the user's guess is incorrect, the jumper must cut a parachute line
         public void CutLine()
         {
-            
+            // variable that keeps track of how many wrong answers there have been so as
+            // to determine how many rows get printed
+            // double for loop and a variable to change which row in the array it starts on
+            for (int col = _wrongGuesses; col < 7; col++)
+            {
+                for (int row = 0; row < 7; row++)
+                {
+                    Console.WriteLine($"{_board[row, col]}");
+                    Console.WriteLine();
+                }
+            }
         }
         
         // displays the current visual status of the parachute jumper
         public void GetChute()
         {
-            char[,] board = new char[7 , 7] {
+            char[,] _board = new char[7 , 7] {
                 {' ', ' ', '_', '_', '_', ' ', ' '},{' ','/', '_', '_', '_', '\\',' '},{' ', '\\', ' ', ' ', ' ', '/', ' '},
                 {' ', ' ', '\\', ' ', '/', ' ', ' '},{' ', ' ', ' ', '0', ' ', ' ', ' '},{' ', ' ', '/', '|', '\\', ' ', ' '},
                 {' ', ' ', '/', ' ', '\\', ' ', ' '}};
@@ -27,7 +40,7 @@ namespace _05_jumper
                 {
                     for (int col = 0; col < 7; col++)
                     {
-                        Console.Write($"{board[row , col]}");
+                        Console.Write($"{_board[row , col]}");
                     }
                 }
                 Console.WriteLine("^^^^^^^^^^^^^^^");
