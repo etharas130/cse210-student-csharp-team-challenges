@@ -15,9 +15,9 @@ namespace _05_jumper
         {
             Console.WriteLine();
             Console.Write("Guess a letter [a-z]: ");
-            string _guess = Console.ReadLine();
+            string _letter = Console.ReadLine();
 
-            return _guess;
+            return _letter;
         }
     }
 }

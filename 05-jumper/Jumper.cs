@@ -6,16 +6,18 @@ namespace _05_jumper
     class Jumper
     {
         //string _guess;
+        string _chute;
         List<string> _underscores = new List<string>(); 
+        SecretKeeper _secretKeeper = new SecretKeeper();
 
         // if the the user's guess is incorrect, the jumper must cut a parachute line
         public void CutLine()
         {
-
+            
         }
         
         // displays the current visual status of the parachute jumper
-        public void GetChute()
+        public string GetChute()
         {
             char[,] board = new char[7 , 7] {
                 {' ', ' ', '_', '_', '_', ' ', ' '},{' ','/', '_', '_', '_', '\\',' '},{' ', '\\', ' ', ' ', ' ', '/', ' '},
