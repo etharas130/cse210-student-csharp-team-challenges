@@ -8,6 +8,7 @@ namespace _05_jumper
         List<string> _secretWordLetters = new List<string>();
         List<string> _underscores = new List<string>();
         List<string> _guessedLetters = new List<string>();
+        int _length;
         
         // chooses the secret word
         public void SelectSecretWord()
@@ -70,8 +71,8 @@ namespace _05_jumper
         // the correct underscores with the guess's letter
         public void ReplaceUnderscores(string letter)
         {
-            int length = _secretWordLetters.Count;
-            for (int i = 0; i < length; i++)
+            _length = _secretWordLetters.Count;
+            for (int i = 0; i < _length; i++)
             {
                 foreach (string character in _guessedLetters)
                 {
@@ -81,6 +82,15 @@ namespace _05_jumper
                     }
                 }
             }
+        }
+
+        public void DisplayUnderscores()
+        {
+            for (int i = 0; i < _length; i++)
+            {
+                Console.Write($"{_underscores} ");
+            }
+            Console.WriteLine("");
         }
     }
 }

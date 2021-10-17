@@ -19,7 +19,6 @@ namespace _05_jumper
         string _letter;
         bool _correct;
         string _chute;
-        List<string> _underscores = new List<string>();
 
         public void StartGame()
         {
@@ -65,10 +64,9 @@ namespace _05_jumper
         // displays the new "board" and word status. Determines if game is over or not
         public void DoOutputs()
         {
-            //_chute = 
             _jumper.GetChute();
             _secretKeeper.GetUnderscores();
-            Console.WriteLine(_underscores);
+            _secretKeeper.DisplayUnderscores();
             Console.WriteLine(_chute);
         }
     }
