@@ -13,16 +13,14 @@ namespace _05_jumper
                 {' ', ' ', '\\', ' ', '/', ' ', ' '},{' ', ' ', ' ', '0', ' ', ' ', ' '},{' ', ' ', '/', '|', '\\', ' ', ' '},
                 {' ', ' ', '/', ' ', '\\', ' ', ' '}};
 
-        // if the the user's guess is incorrect, the jumper must cut a parachute line
+        // Adds 1 to the variable keeping track of wrong guesses,
+        // and returns it to director.
         public int CutLine()
         {
-            // variable that keeps track of how many wrong answers there have been so as
-            // to determine how many rows get printed
-            // double for loop and a variable to change which row in the array it starts on
             return _wrongGuesses++;
         }
         
-        // displays the current visual status of the parachute jumper
+        // displays the current visual status of the parachute and jumper.
         public void GetChute()
         {
             for (int row = _wrongGuesses; row < 7; row++)

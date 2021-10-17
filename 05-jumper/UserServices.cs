@@ -6,15 +6,14 @@ namespace _05_jumper
 {
     class UserServices
     {
-        
-        /// <summary>
-        /// Gets a letter guess from the user
-        /// </summary>
-        /// <param> no parameters </param>
+        string _letter;
+
+        //this funtion prompts the user for their guess in the
+        //form of a lowercase letter and returns it to director.
         public string GetLetterFromUser()
         {
             Console.Write("Guess a letter [a-z]: ");
-            string _letter = Console.ReadLine();
+            _letter = Console.ReadLine();
 
             return _letter;
         }

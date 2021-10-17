@@ -29,7 +29,7 @@ namespace _05_jumper
             words.Add("hairpin");
 
             string secretWord = words[randomGenerator.Next(1, words.Count)];
-            
+
             foreach (char letter in secretWord)
             {
                 _secretWordLetters.Add(letter);
@@ -58,8 +58,7 @@ namespace _05_jumper
             return false;
         }
 
-        // displays to the user the underscores of the secret word 
-        // and whatever correct letters have been chosen
+        // Creates the basic list for the underscores to be used throughout program.
         public void GetUnderscores()
         {
             foreach (char letter in _secretWordLetters)
@@ -69,7 +68,7 @@ namespace _05_jumper
         }
         
         // if the user's guess is correct, this function replaces
-        // the correct underscores with the guess's letter
+        // the correct underscores with the guess's letter.
         public void ReplaceUnderscores(string letter)
         {
             for (int i = 0; i < _length; i++)
@@ -84,6 +83,7 @@ namespace _05_jumper
             }
         }
 
+        // Displays the underscored word with the guessed letters.
         public void DisplayUnderscores()
         {
             Console.WriteLine("");
@@ -95,6 +95,8 @@ namespace _05_jumper
             Console.WriteLine("");
         }
 
+        // determines how many letter's Have NOT been guessed and 
+        // returns that number to Director.
         public int NumUnderscores()
         {
             int numUnderscores = 0;

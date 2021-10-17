@@ -13,6 +13,7 @@ namespace _05_jumper
         bool _correct;
         int _wrongGuesses = 0;
 
+        // is the main function in director, runs the game.
         public void StartGame()
         {
             SetUpGame();
@@ -25,6 +26,7 @@ namespace _05_jumper
             }
         }
 
+        // does the starting set up for the game, only get's called once.
         public void SetUpGame()
         {
             _secretKeeper.SelectSecretWord();
@@ -38,7 +40,7 @@ namespace _05_jumper
         {
             _letter = _userServices.GetLetterFromUser();
         }
-        // update display
+        // update display and determines whether the game is over or not.
         public void DoUpdates()
         {
             _correct = _secretKeeper.CheckGuess(_letter);
@@ -56,7 +58,7 @@ namespace _05_jumper
                 _keepPlaying = false;
             }
         }
-        // displays the new "board" and word status. Determines if game is over or not
+        // displays the new "board" and word status.
         public void DoOutputs()
         {
             _secretKeeper.DisplayUnderscores();
