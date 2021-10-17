@@ -7,6 +7,7 @@ namespace _05_jumper
     {
         List<string> _secretWordLetters = new List<string>();
         List<string> _underscores = new List<string>();
+        List<string> _guessedLetters = new List<string>();
         
         // chooses the secret word
         public void SelectSecretWord()
@@ -34,34 +35,52 @@ namespace _05_jumper
 
         // checks whether the user's guess is equivalent to one or more of
         // the letters in the secret word
-        public bool CheckGuess(string )
+        public bool CheckGuess(string guess)
         {
-            foreach (string letter in guess)
+            foreach (char letter in guess)
             {
-                if (guess in _secretWordLetters)
+                foreach (string letter2 in _secretWordLetters)
                 {
-                    return true;
-                }
-
-                else 
-                {
-                    return false; 
+                    char character = char.Parse(letter2);
+                    if (letter == character)
+                    {
+                        // adds the guessed letter to a list to be used in the underscore funtion.
+                        _guessedLetters.Add(letter2);
+                        // As soon as it finds a matching letter, it returns true and leaves the function.
+                        return true;
+                    } 
                 }
             }
+            // if it goes through the entire list of letters and none match, returns false.
+            return false;
         }
 
         // displays to the user the underscores of the secret word 
         // and whatever correct letters have been chosen
-        public string GetUnderscores()
+        public List<string> GetUnderscores()
         {
-            
+            foreach (string letter in _secretWordLetters)
+            {
+                _underscores.Add("_ ");
+            }
+            return _underscores;
         }
         
         // if the user's guess is correct, this function replaces
         // the correct underscores with the guess's letter
         public void ReplaceUnderscores(string letter)
         {
-
+            int length = _secretWordLetters.Count;
+            for (int i = 0; i < length; i++)
+            {
+                foreach (string character in _guessedLetters)
+                {
+                    if (character == _secretWordLetters[i])
+                    {
+                        _underscores[i] = character;
+                    }
+                }
+            }
         }
     }
 }
