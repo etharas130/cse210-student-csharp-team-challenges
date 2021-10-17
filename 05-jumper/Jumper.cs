@@ -17,7 +17,7 @@ namespace _05_jumper
         }
         
         // displays the current visual status of the parachute jumper
-        public string GetChute()
+        public void GetChute()
         {
             char[,] board = new char[7 , 7] {
                 {' ', ' ', '_', '_', '_', ' ', ' '},{' ','/', '_', '_', '_', '\\',' '},{' ', '\\', ' ', ' ', ' ', '/', ' '},
