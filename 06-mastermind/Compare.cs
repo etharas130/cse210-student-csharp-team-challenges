@@ -21,7 +21,7 @@ namespace _06_mastermind
         // and retnurns a complicated hint :) 
         public string CompareGuess(string guess)
         {
-            string hint = "";
+            string hint = "****";
             string number = _number.ToString();
 
             return hint;
