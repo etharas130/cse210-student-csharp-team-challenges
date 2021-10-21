@@ -8,13 +8,19 @@ namespace _06_mastermind
     // and compares the two adn returns a hint in the form of a string
     class Compare
     {
-        int _number;
+        private int _number;
 
         // generates a random number 
-        private void GenerateNumber()
+        public int GenerateNumber()
         {
             Random RandomGenerator = new Random();
             _number = RandomGenerator.Next(1000,10000);
+            return _number;
+        }
+
+        public int GetNumber()
+        {
+            return _number;
         }
         
         // compares the player's guess to the random number 

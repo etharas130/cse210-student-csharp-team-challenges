@@ -22,12 +22,14 @@ namespace _06_mastermind
 
         private void PrepareGame()
         {
-            _compare.GenerateNumber();
-            string prompt = $"Enter a name for player {i + 1}: ";
-            string name = _userService.GetStringInput(prompt);
+            for (int i =0; i < 2; i++)
+            {
+                string prompt = $"Enter a name for player {i + 1}: ";
+                string name = _userService.GetStringInput(prompt);
 
-            Player player = new Player(name);
-            _roster.AddPlayer(player);
+                Player player = new Player(name);
+                _roster.AddPlayer(player);
+            }
         }
 
         private void GetInputs()
