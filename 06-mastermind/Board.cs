@@ -12,12 +12,12 @@ namespace _06_mastermind
 
         private void Prepare()
         {
-
+            
         }
 
         public void Apply(Guess guess)
         {
-            int guess = guess.GetGuess();
+            int thisGuess = guess.GetGuess();
 
         }
 

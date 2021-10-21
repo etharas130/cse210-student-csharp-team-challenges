@@ -43,7 +43,7 @@ namespace _06_mastermind
             int guess = _userService.GetNumberInput("What is your guess? ");
 
             Guess guessP = new Guess(guess);
-            currentPlayer.SetGuess(guess);
+            currentPlayer.SetGuess(guessP);
         }
 
         private void DoUpdates()
@@ -57,7 +57,7 @@ namespace _06_mastermind
 
         private void DoOutputs()
         {
-            if (_board.IsEmpty())
+            if (_board.IsCorrect())
             {
                 Player winningPlayer = _roster.GetCurrentPlayer();
                 string name = winningPlayer.GetName();
