@@ -34,16 +34,39 @@ namespace _06_mastermind
 
         private void GetInputs()
         {
+            string board = _board.ToString();
+            _userService.DisplayText(board);
 
+            Player currentPlayer = _roster.GetCurrentPlayer();
+            _userService.DisplayText($"{currentPlayer.GetName()}'s turn:");
+
+            int guess = _userService.GetNumberInput("What is your guess? ");
+
+            Guess guessP = new Guess(guess);
+            currentPlayer.SetGuess(guess);
         }
 
         private void DoUpdates()
         {
+            Player currentPlayer = _roster.GetCurrentPlayer();
+            Guess currentguess = currentPlayer.GetGuess();
+
+            _board.Apply(currentguess);
 
         }
 
         private void DoOutputs()
         {
+            if (_board.IsEmpty())
+            {
+                Player winningPlayer = _roster.GetCurrentPlayer();
+                string name = winningPlayer.GetName();
+
+                _userService.DisplayText($"{name} won!");
+                _keepPlaying = false;
+            }
+
+            _roster.AdvanceNextPlayer();
 
         }
     }
