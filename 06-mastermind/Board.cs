@@ -5,13 +5,25 @@ namespace _06_mastermind
 {
     class Board
     {
+        private Compare _compare = new Compare();
+
+        List<string> _info = new List<string>();
+        bool _turn = true;
         public Board()
         {
             Prepare();
         }
 
+        // --------------------
+        // Player Matt: 1111, xooo
+        // Player John: ----, ****
+        // --------------------
+        // John's turn:
+        // What is your guess? 4356
+        // 
         private void Prepare()
         {
+            string text = "";
             
         }
 
@@ -31,8 +43,9 @@ namespace _06_mastermind
         public override string ToString()
         {
             string text = "\n--------------------\n";
-
-            text += "--------------------\n";
+            text += $"Player {player1}: {guess1}, {_compare.CompareGuess(guess, rNumber)}"
+            text += $"Player {player2}: {guess2}, {_compare.CompareGuess(guess, rNumber)}"
+            text += "--------------------";
 
             return text;
         }
