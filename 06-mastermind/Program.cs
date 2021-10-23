@@ -6,7 +6,7 @@ namespace _06_mastermind
     {
         static void Main(string[] args)
         {
-            Director theDirector = new Director();
+             Director theDirector = new Director();
             theDirector.StartGame();
         }
     }

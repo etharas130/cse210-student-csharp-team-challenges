@@ -5,7 +5,7 @@ namespace _06_mastermind
 {
     // This class generates a random 4 digit number 
     // and takes the guess from the player 
-    // and compares the two adn returns a hint in the form of a string
+    // and compares the two and returns a hint in the form of a string
     class Compare
     {
         private int _number;
@@ -24,7 +24,7 @@ namespace _06_mastermind
         }
         
         // compares the player's guess to the random number 
-        // and retnurns a complicated hint :) 
+        // and returns a complicated hint :) 
         public string CompareGuess(string guess, int rNumber)
         {
             string hint = "";
