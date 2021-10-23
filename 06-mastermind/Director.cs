@@ -8,6 +8,7 @@ namespace _06_mastermind
         private UserServices _userService = new UserServices();
         private Roster _roster = new Roster();
         private Compare _compare = new Compare();
+        private Guess _guess = new Guess();
         private bool _keepPlaying = true;
         public void StartGame()
         {
@@ -41,18 +42,12 @@ namespace _06_mastermind
             _userService.DisplayText($"{currentPlayer.GetName()}'s turn:");
 
             int guess = _userService.GetNumberInput("What is your guess? ");
-
-            Guess guessP = new Guess(guess);
-            currentPlayer.SetGuess(guessP);
+            _guess.SaveGuess(guess);
         }
 
         private void DoUpdates()
         {
             Player currentPlayer = _roster.GetCurrentPlayer();
-            Guess currentguess = currentPlayer.GetGuess();
-
-            _board.Apply(currentguess);
-
         }
 
         private void DoOutputs()

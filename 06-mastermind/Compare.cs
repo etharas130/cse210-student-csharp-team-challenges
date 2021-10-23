@@ -15,6 +15,7 @@ namespace _06_mastermind
         {
             Random RandomGenerator = new Random();
             _number = RandomGenerator.Next(1000,10000);
+            Console.WriteLine($"{_number}");
             return _number;
         }
 
@@ -22,39 +23,55 @@ namespace _06_mastermind
         {
             return _number;
         }
+        public bool IsCorrect(int guess)
+        {
+            bool correctNumber = false;
+            if (guess == _number)
+            {
+                correctNumber = true;
+            }
+            return correctNumber;
+        }
         
         // compares the player's guess to the random number 
         // and returns a complicated hint :) 
-        public string CompareGuess(string guess, int rNumber)
+        public string CompareGuess(int guess)
         {
             string hint = "";
-            string number = rNumber.ToString();
-
-            for (int i = 0; i < number.Length; i++)
+            string number = _number.ToString();
+            string guessS = guess.ToString();
+            if ( guess == 0)
             {
-                if(guess[0] == number[i] && i == 0)
+                hint = "****";
+            }
+            else
+            {
+                for (int i = 0; i < 4; i++)
                 {
-                    hint += guess[0];
-                }
-                else if(guess[1] == number[i] && i == 1)
-                {
-                    hint += guess[1];
-                }
-                else if(guess[2] == number[i] && i == 2)
-                {
-                    hint += guess[2];
-                }
-                else if(guess[3] == number[i] && i == 3)
-                {
-                    hint += guess[3];
-                }
-                else if(guess[0] == number[i] || guess[1] == number[i] || guess[2] == number[i] || guess[3] == number[i])
-                {
-                    hint += "o";
-                }
-                else 
-                {
-                    hint += "x";
+                    if (guessS[i] == number[i])
+                    {
+                        hint += "X";
+                    }
+                    else
+                    {
+                        bool match = false;
+                        for (int x = 0; x < 4; x++)
+                        {
+
+                            if (guessS[i] == number[x])
+                            {
+                                match = true;
+                            }
+                        }
+                        if (match == true)
+                        {
+                            hint += "O";
+                        }
+                        else
+                        {
+                            hint += "*";
+                        }
+                    }
                 }
             }
             return hint;
