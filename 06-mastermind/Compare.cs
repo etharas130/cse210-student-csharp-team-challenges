@@ -15,7 +15,7 @@ namespace _06_mastermind
         {
             Random RandomGenerator = new Random();
             _number = RandomGenerator.Next(1000,10000);
-            Console.WriteLine($"{_number}");
+            // Console.WriteLine($"{_number}");
             return _number;
         }
 
@@ -40,7 +40,7 @@ namespace _06_mastermind
             string hint = "";
             string number = _number.ToString();
             string guessS = guess.ToString();
-            if ( guess == 0)
+            if (guess == 0)
             {
                 hint = "****";
             }

@@ -5,26 +5,32 @@ namespace _06_mastermind
     /// contains the current guess 
     class Guess
     {
-        int[] _guess = new int[2];
-        int _turn = 0;
+        int _guess = 0;
+        Compare _compare; 
         /// Saves the guess in the players corresponding spot
-        public void SaveGuess(int guess)
+
+        public Guess(Compare compare)
         {
-            _guess[_turn] = guess;
-            Console.WriteLine($"{_guess[_turn]}");
-            if (_turn == 0)
-            {
-                _turn = 1;
-            }
-            else if (_turn == 1)
-            {
-                _turn = 0;
-            }
+            _compare = compare; 
+        }
+        public void SetGuessValue(int guessNum)
+        {
+            _guess = guessNum;
         }
 
-        public int[] GetGuess()
+        public int GetGuessValue()
         {
             return _guess;
+        }
+
+        public string PrintGuessResult()
+        {
+            return _compare.CompareGuess(_guess);
+        }
+
+        public bool TestGuess()
+        {
+            return _compare.IsCorrect(_guess);
         }
     }
 }
