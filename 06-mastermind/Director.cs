@@ -25,7 +25,7 @@ namespace _06_mastermind
             while (_keepPlaying)
             {
                 GetInputs();
-                DoUpdates();
+                // DoUpdates();
                 DoOutputs();
             }
         }
@@ -62,16 +62,16 @@ namespace _06_mastermind
             int guessNum = _userService.GetNumberInput("What is your guess? ");
             while (guessNum < 1000 || guessNum > 9999)
             {
-                Console.SetCursorPosition(0, Console.CursorTop - 1);
-                guessNum = _userService.GetNumberInput("What is your guess?       \b\b\b\b\b\b");
+                Console.SetCursorPosition(0, Console.CursorTop - 1); // back up and overwrite the same line
+                guessNum = _userService.GetNumberInput("What is your guess?       \b\b\b\b\b\b"); // print the prompt over again
             }
             currentPlayer.GetGuess().SetGuessValue(guessNum);
         }
 
-        private void DoUpdates()
-        {
-            Player currentPlayer = _roster.GetCurrentPlayer();
-        }
+        // private void DoUpdates()
+        // {
+        //     Player currentPlayer = _roster.GetCurrentPlayer();
+        // }
 
         private void DoOutputs()
         {
