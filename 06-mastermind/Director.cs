@@ -32,7 +32,7 @@ namespace _06_mastermind
 
         public void InitScreen()
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.BackgroundColor = ConsoleColor.White;
             Console.Clear();
         }
