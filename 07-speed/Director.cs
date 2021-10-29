@@ -22,6 +22,7 @@ namespace _07_speed
         // is ready
 
         ScoreBoard _scoreBoard = new ScoreBoard();
+        Buffer _buffer = new Buffer();
 
         /// <summary>
         /// This method starts the game and continues running until it is finished.
@@ -95,56 +96,12 @@ namespace _07_speed
             _outputService.StartDrawing();
 
             _outputService.DrawActor(_scoreBoard);
+            _outputService.DrawActor(_buffer);
 
-            // TODO: Add this back in when the food class is complete.
-            _outputService.DrawActor(_food);
-            
-            _outputService.DrawActors(_snake.GetAllSegments());
 
             _outputService.EndDrawing();
         }
 
-        /// <summary>
-        /// Looks for and handles collisions between the snake's head
-        /// and it's body.
-        /// </summary>
-        private void HandleBodyCollision()
-        {
-            Actor head = _snake.GetHead();
-
-            List<Actor> segments = _snake.GetCollidableSegments();
-
-            foreach(Actor segment in segments)
-            {
-                if (IsCollision(head, segment))
-                {
-                    // There is a collision
-                    _keepPlaying = false;
-                    break;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Looks for and handles the case of the snake's head
-        /// colliding with the food.
-        /// </summary>
-        private void HandleFoodCollision()
-        {
-            // TODO: Add this code back in when
-            // the food class is complete.
-
-            Actor head = _snake.GetHead();
-            
-            if (IsCollision(head, _food))
-            {
-                int points = _food.GetPoints();
-
-                _snake.GrowTail(points);
-                _scoreBoard.AddPoints(points);
-                _food.Reset();
-            }
-        }
 
         /// <summary>
         /// Returns true if the two actors are overlapping.

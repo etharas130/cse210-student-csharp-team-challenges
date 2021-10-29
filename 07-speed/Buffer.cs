@@ -9,6 +9,19 @@ namespace _07_speed
     /// </summary>
     public class Buffer : Actor
     {
+        public Buffer()
+        {
+            _position = new Point(1, 375);
+            _width = 0;
+            _height = 0;
+            
+            UpdateText();
+        }
+
+        private void UpdateText()
+        {
+            _text = "Buffer: ";
+        }
 
     }
 }

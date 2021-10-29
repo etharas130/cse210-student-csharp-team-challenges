@@ -21,6 +21,11 @@ namespace _07_speed
             _words.Add("supercalifragilisticexpialidocious");
         }
 
-        
+        public void GenerateWord()
+        {
+
+        }
+
+
     }
 }
