@@ -23,6 +23,7 @@ namespace _07_speed
 
         ScoreBoard _scoreBoard = new ScoreBoard();
         Buffer _buffer = new Buffer();
+        Word _word = new Word();
 
         /// <summary>
         /// This method starts the game and continues running until it is finished.
@@ -97,7 +98,7 @@ namespace _07_speed
 
             _outputService.DrawActor(_scoreBoard);
             _outputService.DrawActor(_buffer);
-
+            _outputService.DrawActor(_word);
 
             _outputService.EndDrawing();
         }
