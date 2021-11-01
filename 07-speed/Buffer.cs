@@ -9,6 +9,7 @@ namespace _07_speed
     /// </summary>
     public class Buffer : Actor
     {
+        List<string> _letters = new List<string>();
         public Buffer()
         {
             _position = new Point(1, 375);
@@ -23,12 +24,13 @@ namespace _07_speed
             _text = "Buffer: ";
         }
 
-        private void AddLetter()
+        public void AddLetter(string letter)
         {
+
             
         }
 
-        private void ClearLetter()
+        public void ClearWord()
         {
 
         }

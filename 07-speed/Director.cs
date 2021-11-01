@@ -53,6 +53,7 @@ namespace _07_speed
         private void PrepareGame()
         {
             _outputService.OpenWindow(Constants.MAX_X, Constants.MAX_Y, "Speed Game", Constants.FRAME_RATE);
+            _outputService.DrawActor(_word);
         }
 
         /// <summary>
@@ -80,7 +81,7 @@ namespace _07_speed
         /// </summary>
         private void DoUpdates()
         {
-            // _snake.Move();
+            _word.MoveNext();
 
             // HandleFoodCollision();
             // HandleBodyCollision();
@@ -95,10 +96,12 @@ namespace _07_speed
 
             _outputService.DrawActor(_scoreBoard);
             _outputService.DrawActor(_buffer);
-            foreach (word in _words)
+
+            foreach(Word word in _word)
             {
-                _outputService.DrawActor(_word);
+                _outputService.DrawActor(word);
             }
+
             _outputService.EndDrawing();
         }
 

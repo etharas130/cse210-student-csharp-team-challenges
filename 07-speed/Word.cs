@@ -26,9 +26,15 @@ namespace _07_speed
             int x = Constants.MAX_X - 20;
             int y = randomGenerator.Next(10, Constants.MAX_Y - 25);
 
+            int dx = randomGenerator.Next(1,4);
+            int dy = 0;
+
             _position = new Point(x,y);
             _width = 0;
             _height = 0;
+
+            _velocity = new Point(dx,dy);
+            
         }
         
         public void GenerateWord()
@@ -56,11 +62,7 @@ namespace _07_speed
             _words.Add("supernova");
             _words.Add("titanium");
             _words.Add("kangaroo");
-
-
         }
-
-
 
 
     }
