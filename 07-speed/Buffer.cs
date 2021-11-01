@@ -23,5 +23,15 @@ namespace _07_speed
             _text = "Buffer: ";
         }
 
+        private void AddLetter()
+        {
+            
+        }
+
+        private void ClearLetter()
+        {
+
+        }
+
     }
 }
