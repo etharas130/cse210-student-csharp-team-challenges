@@ -60,22 +60,19 @@ namespace _07_speed
         /// </summary>
         private void GetInputs()
         {
-            // if (_inputService.IsLeftPressed())
-            // {
-            //     _snake.TurnHead(new Point(-1, 0));
-            // }
-            // else if (_inputService.IsRightPressed())
-            // {
-            //     _snake.TurnHead(new Point(1, 0));
-            // }
-            // else if (_inputService.IsUpPressed())
-            // {
-            //     _snake.TurnHead(new Point(0, -1));
-            // }
-            // else if (_inputService.IsDownPressed())
-            // {
-            //     _snake.TurnHead(new Point(0, 1));
-            // }
+            string letter = _inputService.GetLetter();
+
+            if (letter is "")
+            {
+                if (letter == "\n")
+                {
+                    _buffer.ClearWord();
+                }
+                else
+                {
+                    _buffer.Addletter(letter);
+                }
+            }
         }
 
         /// <summary>
@@ -98,8 +95,10 @@ namespace _07_speed
 
             _outputService.DrawActor(_scoreBoard);
             _outputService.DrawActor(_buffer);
-            _outputService.DrawActor(_word);
-
+            foreach (Word in _words)
+            {
+                _outputService.DrawActor(_word);
+            }
             _outputService.EndDrawing();
         }
 
