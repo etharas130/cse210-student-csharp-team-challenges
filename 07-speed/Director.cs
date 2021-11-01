@@ -70,7 +70,7 @@ namespace _07_speed
                 }
                 else
                 {
-                    _buffer.Addletter(letter);
+                    _buffer.AddLetter(letter);
                 }
             }
         }
@@ -95,7 +95,7 @@ namespace _07_speed
 
             _outputService.DrawActor(_scoreBoard);
             _outputService.DrawActor(_buffer);
-            foreach (Word in _words)
+            foreach (word in _words)
             {
                 _outputService.DrawActor(_word);
             }
