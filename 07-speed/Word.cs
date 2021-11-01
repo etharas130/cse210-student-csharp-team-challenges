@@ -53,7 +53,14 @@ namespace _07_speed
             _words.Add("Star Wars");
             _words.Add("Lightsaber");
             _words.Add("exhange");
+            _words.Add("supernova");
+            _words.Add("titanium");
+            _words.Add("kangaroo");
+
+
         }
+
+
 
 
     }
