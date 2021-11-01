@@ -46,6 +46,13 @@ namespace _07_speed
             _words.Add("Collette");
             _words.Add("blurb");
             _words.Add("supercalifragilisticexpialidocious");
+            _words.Add("hyperactive");
+            _words.Add("dolphin");
+            _words.Add("Schizophrenia");
+            _words.Add("Psychology");
+            _words.Add("Star Wars");
+            _words.Add("Lightsaber");
+            _words.Add("exhange");
         }
 
 

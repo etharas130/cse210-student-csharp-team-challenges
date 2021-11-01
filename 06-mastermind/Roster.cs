@@ -47,7 +47,7 @@ namespace _06_mastermind
 
         public void JustifyPlayerNames()
         {
-            // find longest name
+            // find longest namef
             int longest = 0;
             foreach (Player player in _players)
             {
