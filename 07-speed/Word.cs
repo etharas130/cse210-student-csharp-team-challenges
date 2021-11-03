@@ -8,11 +8,13 @@ namespace _07_speed
     /// Base class for all actors in the game.
     /// </summary>
     public class Word : Actor
-    {
-        private List<string> _words = new List<string>();
+    {   
+        // private List<string> _words = new List<string>();
         Random randomGenerator = new Random();
-        
-        
+        WordBank _wordBank = new WordBank();
+
+        string newWord;
+
         public Word()
         {
             PrepareWord();
@@ -20,8 +22,7 @@ namespace _07_speed
 
         private void PrepareWord()
         {
-            AddToWord();
-            GenerateWord();
+            _text = _wordBank.GenerateWord();
 
             int x = Constants.MAX_X - 20;
             int y = randomGenerator.Next(10, Constants.MAX_Y - 25);
@@ -33,36 +34,41 @@ namespace _07_speed
             _width = 0;
             _height = 0;
 
-            _velocity = new Point(dx,dy);
+            _velocity = new Point(-dx,dy);
+            
+        }
+
+        public void IsOffScreen()
+        {
             
         }
         
-        public void GenerateWord()
-        {
-            string word = _words[randomGenerator.Next(0, _words.Count - 1)];
+        // public void GenerateWord()
+        // {
+        //     string word = _words[randomGenerator.Next(0, _words.Count - 1)];
 
-            _text = word;
-        }
+        //     _text = word;
+        // }
 
-        private void AddToWord()
-        {
-            _words.Add("Brenin");
-            _words.Add("amalgamation");
-            _words.Add("Linda");
-            _words.Add("Collette");
-            _words.Add("blurb");
-            _words.Add("supercalifragilisticexpialidocious");
-            _words.Add("hyperactive");
-            _words.Add("dolphin");
-            _words.Add("Schizophrenia");
-            _words.Add("Psychology");
-            _words.Add("Star Wars");
-            _words.Add("Lightsaber");
-            _words.Add("exhange");
-            _words.Add("supernova");
-            _words.Add("titanium");
-            _words.Add("kangaroo");
-        }
+        // private void AddToWord()
+        // {
+        //     _words.Add("Brenin");
+        //     _words.Add("amalgamation");
+        //     _words.Add("Linda");
+        //     _words.Add("Collette");
+        //     _words.Add("blurb");
+        //     _words.Add("supercalifragilisticexpialidocious");
+        //     _words.Add("hyperactive");
+        //     _words.Add("dolphin");
+        //     _words.Add("Schizophrenia");
+        //     _words.Add("Psychology");
+        //     _words.Add("Star Wars");
+        //     _words.Add("Lightsaber");
+        //     _words.Add("exhange");
+        //     _words.Add("supernova");
+        //     _words.Add("titanium");
+        //     _words.Add("kangaroo");
+        // }
 
 
     }
