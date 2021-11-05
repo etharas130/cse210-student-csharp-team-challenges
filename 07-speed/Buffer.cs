@@ -26,7 +26,8 @@ namespace _07_speed
 
         public void AddLetter(string letter)
         {
-
+            // It is possible that we could create another Point next to the "Buffer: " text
+            // that we type into, rather than adding the letters to the "Buffer: " text itself
             
         }
         public void ClearLetter()
