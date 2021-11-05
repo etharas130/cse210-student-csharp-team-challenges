@@ -88,6 +88,8 @@ namespace _07_speed
             {
                 word.MoveNext();
             }
+
+            
         }
 
         /// <summary>

@@ -21,7 +21,7 @@ namespace _07_speed
 
         private void UpdateText()
         {
-            _text = "Buffer: "; //feiowfjw
+            _text = "Buffer: "; 
         }
 
         public void AddLetter(string letter)

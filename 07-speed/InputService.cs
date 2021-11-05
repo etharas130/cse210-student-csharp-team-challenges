@@ -33,10 +33,15 @@ namespace _07_speed
 
         public string GetLetter()
         {
-            int keyInt = Raylib.GetCharPressed();
+            int keyInt = Raylib.GetKeyPressed();
+            if(keyInt != 0)
+            {
+                Console.WriteLine(keyInt);
+            }
 
             string keyString = "";
-            if(keyInt!= 0)
+
+            if (keyInt != 0)
             {
                 if((Raylib_cs.KeyboardKey)keyInt == Raylib_cs.KeyboardKey.KEY_ENTER)
                 {

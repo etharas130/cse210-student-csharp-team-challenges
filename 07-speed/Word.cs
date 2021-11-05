@@ -13,8 +13,6 @@ namespace _07_speed
         Random randomGenerator = new Random();
         WordBank _wordBank = new WordBank();
 
-        string newWord;
-
         public Word()
         {
             PrepareWord();
