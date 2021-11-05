@@ -50,7 +50,7 @@ namespace _07_speed
                 else
                 {
                     char keyChar = (char)keyInt;
-                    keyString = keyChar.ToString().ToLower();
+                    keyString = keyChar.ToString();
                 }
             }
             return keyString;
