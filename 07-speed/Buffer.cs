@@ -29,7 +29,7 @@ namespace _07_speed
 
             
         }
-        public void ClearWord()
+        public void ClearLetter()
         {
 
         }
