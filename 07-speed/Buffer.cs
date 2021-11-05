@@ -23,12 +23,12 @@ namespace _07_speed
             _text = "Buffer: ";
         }
 
-        private void AddLetter()
+        public void AddLetter(string letter)
         {
             
         }
 
-        private void ClearLetter()
+        public void ClearLetter()
         {
 
         }

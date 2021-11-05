@@ -66,7 +66,7 @@ namespace _07_speed
             {
                 if (letter == "\n")
                 {
-                    _buffer.ClearWord();
+                    _buffer.ClearLetter();
                 }
                 else
                 {
