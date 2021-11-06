@@ -89,7 +89,7 @@ namespace _07_speed
                 word.MoveNext();
             }
 
-            
+            _buffer.UpdateText();
         }
 
         /// <summary>

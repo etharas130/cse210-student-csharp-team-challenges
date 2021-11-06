@@ -22,7 +22,7 @@ namespace _07_speed
             UpdateText();
         }
 
-        private void UpdateText()
+        public void UpdateText()
         {
             _text = "Buffer: " + _bufferText.ToString(); 
         }
