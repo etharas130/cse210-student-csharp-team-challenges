@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Raylib_cs;
+using System.Text; 
 
 namespace _07_speed
 {
@@ -10,6 +11,8 @@ namespace _07_speed
     public class Buffer : Actor
     {
         List<string> _letters = new List<string>();
+
+        StringBuilder _bufferText = new StringBuilder();
         public Buffer()
         {
             _position = new Point(1, 375);
@@ -21,18 +24,16 @@ namespace _07_speed
 
         private void UpdateText()
         {
-            _text = "Buffer: "; 
+            _text = "Buffer: " + _bufferText.ToString(); 
         }
 
         public void AddLetter(string letter)
         {
-            // It is possible that we could create another Point next to the "Buffer: " text
-            // that we type into, rather than adding the letters to the "Buffer: " text itself
-            
+            _bufferText.Append(letter);
         }
         public void ClearLetter()
         {
-
+            _bufferText.Clear(); 
         }
     }
 }
