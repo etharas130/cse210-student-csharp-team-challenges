@@ -33,7 +33,16 @@ namespace _07_speed
         }
         public void ClearLetter()
         {
-            _bufferText.Clear(); 
+            _bufferText.Clear();
+        }
+
+        public bool Match(Word word)
+        {
+            if (_bufferText.ToString().Contains(word.GetText()))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -10,6 +10,8 @@ namespace _07_speed
         protected Point _position;
         protected Point _velocity;
 
+        protected Point _fractionalMovement;
+
         protected int _width = Constants.DEFAULT_SQUARE_SIZE;
         protected int _height = Constants.DEFAULT_SQUARE_SIZE;
 
@@ -76,26 +78,43 @@ namespace _07_speed
         /// </summary>
         public void MoveNext()
         {
-            int x = _position.GetX();
-            int y = _position.GetY();
-
-            int dx = _velocity.GetX();
-            int dy = _velocity.GetY();
-
-            int newX = (x + dx) % Constants.MAX_X;
-            int newY = (y + dy) % Constants.MAX_Y;
-
-            if (newX < 0)
+            int x;
+            int y;
+            // slowing the velocity by a fraction of a letter
+            _fractionalMovement = _fractionalMovement.Add(_velocity);
+            
+            if (_fractionalMovement.GetX() > Constants.LETTER_FRACTION)
             {
-                newX = Constants.MAX_X;
+                x = _position.GetX();
+                x -= _fractionalMovement.GetX() / Constants.LETTER_FRACTION;
+                if (x < 0)
+                {
+                    x = Constants.MAX_X;
+                }
+                y = _position.GetY();
+                _position = new Point(x, y);
+                x = _fractionalMovement.GetX();
+                x %= Constants.LETTER_FRACTION;
+                y = _fractionalMovement.GetY();
+                _fractionalMovement = new Point(x, y);
             }
 
-            if (newY < 0)
+            if (_fractionalMovement.GetY() > Constants.LETTER_FRACTION)
             {
-                newY = Constants.MAX_Y;
+                y = _position.GetY();
+                y -= _fractionalMovement.GetY() / Constants.LETTER_FRACTION;
+                if (y < 0)
+                {
+                    y = Constants.MAX_Y;
+                }
+                x = _position.GetX();
+                _position = new Point(x, y);
+                y = _fractionalMovement.GetY();
+                y %= Constants.LETTER_FRACTION;
+                x = _fractionalMovement.GetX();
+                _fractionalMovement = new Point(x, y);
             }
 
-            _position = new Point(newX, newY);
         }
 
         public override string ToString()

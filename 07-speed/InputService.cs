@@ -46,7 +46,11 @@ namespace _07_speed
                 else
                 {
                     char keyChar = (char)keyInt;
-                    keyString = keyChar.ToString();
+                    if (!Char.IsLetter(keyChar))
+                    {
+                        return keyString;
+                    }
+                    keyString = keyChar.ToString().ToLower();
                 }
             }
             return keyString;

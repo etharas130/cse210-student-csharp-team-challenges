@@ -11,6 +11,10 @@ namespace _07_speed
         public const int MAX_Y = 400;
         public const int FRAME_RATE = 90;
 
+        public const int LETTER_FRACTION = 10;
+        public const int WORDS_ON_SCREEN = 5;
+        public const int MINIMUM_SPEED = 6;
+        public const int MAXIMUM_SPEED = 19;
         public const int DEFAULT_SQUARE_SIZE = 20;
         public const int DEFAULT_FONT_SIZE = 18;
         public const int DEFAULT_TEXT_OFFSET = 4;

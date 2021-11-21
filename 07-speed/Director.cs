@@ -21,6 +21,7 @@ namespace _07_speed
         Buffer _buffer = new Buffer();
         private List<Word> _words = new List<Word>(); 
         WordBank _wordBank = new WordBank();
+        Random _randomGenerator = new Random();
         
 
         /// <summary>
@@ -51,12 +52,11 @@ namespace _07_speed
         private void PrepareGame()
         {
             _outputService.OpenWindow(Constants.MAX_X, Constants.MAX_Y, "Speed Game", Constants.FRAME_RATE);
-            for (int numWords = 0; numWords < 5; numWords++)
+            for (int numWords = 0; numWords < Constants.WORDS_ON_SCREEN; numWords++)
             {
                 Word w = new Word();
                 _words.Add(w);
-            }
-            
+            }   
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace _07_speed
         {
             string letter = _inputService.GetLetter();
 
-            if (letter is "")
+            if (!(letter is ""))
             {
                 if (letter == "\n")
                 {
@@ -88,7 +88,7 @@ namespace _07_speed
             {
                 word.MoveNext();
             }
-
+            CheckBufferForMatch();
             _buffer.UpdateText();
         }
 
@@ -110,33 +110,43 @@ namespace _07_speed
             _outputService.EndDrawing();
         }
 
+        public void CheckBufferForMatch()
+        {
+            bool changed = false;
+            foreach (Word word in _words)
+            {
+                if (_buffer.Match(word))
+                {
+                    _words.Remove(word);
+                    _buffer.ClearLetter();
+                    _scoreBoard.AddPoints(word.GetText().Length);
+                    changed = true;
+                    break;
+                }
+            }
+            if (changed)
+            {
+                int num = _randomGenerator.Next(0, 10);
+                if (_words.Count < Constants.WORDS_ON_SCREEN)
+                {
+                    Word w = new Word();
+                    _words.Add(w);
+                } 
+                if (num > 2 && _words.Count < 3 * Constants.WORDS_ON_SCREEN)
+                {
+                    Word w = new Word();
+                    _words.Add(w);
+                }   
+                if (num > 5 && _words.Count < 3 * Constants.WORDS_ON_SCREEN)
+                {
+                    Word w = new Word();
+                    _words.Add(w);
+                }                 
+            }
+        }
 
-        // /// <summary>
-        // /// Returns true if the two actors are overlapping.
-        // /// </summary>
-        // /// <param name="first"></param>
-        // /// <param name="second"></param>
-        // /// <returns></returns>
-        // public bool IsCollision(Actor first, Actor second)
-        // {
-        //     int x1 = first.GetX();
-        //     int y1 = first.GetY();
-        //     int width1 = first.GetWidth();
-        //     int height1 = first.GetHeight();
 
-        //     Raylib_cs.Rectangle rectangle1
-        //         = new Raylib_cs.Rectangle(x1, y1, width1, height1);
-
-        //     int x2 = second.GetX();
-        //     int y2 = second.GetY();
-        //     int width2 = second.GetWidth();
-        //     int height2 = second.GetHeight();
-
-        //     Raylib_cs.Rectangle rectangle2
-        //         = new Raylib_cs.Rectangle(x2, y2, width2, height2);
-
-        //     return Raylib.CheckCollisionRecs(rectangle1, rectangle2);
-        // }
+        
 
 
     }
