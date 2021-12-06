@@ -56,7 +56,7 @@ namespace _07_speed
             {
                 Word w = new Word();
                 _words.Add(w);
-            }   
+            }
         }
 
         /// <summary>
@@ -144,10 +144,5 @@ namespace _07_speed
                 }                 
             }
         }
-
-
-        
-
-
     }
 }
